@@ -1,0 +1,27 @@
+<%- include("partials/header"); -%>
+<% if(alert !== ''){ %>
+  <% alert.forEach(function(error){ %>
+    <div class="alert alert-warning" role="alert">
+      <%= error.msg %>
+    </div>
+  <% }); %>
+  <% } %>
+  <div class="content">
+    <form class="form-container" action="/" method="post">
+      <h2>Get the Weather for a City!</h2>
+      <div class="form-group">
+        <label for="">Enter the name of a city</label>
+        <input type="text" name="cityName" class="form-control" placeholder="Enter city name">
+      </div>
+      <div class="form-group">
+        <label for="">Select Unit</label>
+          <select class="form-control" name="unit">
+            <option>Fahrenheit</option>
+            <option>Celsius</option>
+          </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+<%- include("partials/footer"); -%>

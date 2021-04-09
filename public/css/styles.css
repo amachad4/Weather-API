@@ -1,0 +1,104 @@
+body{
+  background-color: #dbf6e9;
+  color: #e8ffc1;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+}
+
+footer {
+  background-color: #0278ae;
+  margin-top: auto;
+  padding: 50px 0 20px;
+  text-align: center;
+}
+
+header {
+  background-color: #0278ae;
+  font-family: "Merriweather", serif;
+  height: 6.25rem;
+  text-align: center;
+}
+
+header a {
+  color: #e8ffc1;
+}
+
+header a:hover {
+  color: #dbf6e9;
+  text-decoration: none;
+}
+
+header h1{
+  font-weight: bold;
+  font-size: 3.75rem;
+  margin: 0;
+  padding-top: 10px;
+}
+
+img {
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+
+/*errors div styling*/
+.alert{
+  margin: 30px auto 0;
+  position: relative;
+  width: 40rem;
+}
+
+.content {
+  margin: 150px auto 0;
+  position: relative;
+  width: 45.5rem;
+}
+
+.form-container{
+  background-color: #51adcf;
+  bottom: 100px;
+  padding: 30px;
+  position: relative;
+}
+
+/* Home button styling */
+
+.home {
+  bottom: 50px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.home a{
+  color: #FFF;
+  text-decoration: none;
+}
+
+/* Weather icon div styling */
+
+.icon-container {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  width: 20%;
+}
+
+.icon-container p {
+  bottom: 25px;
+  position: relative;
+  text-align: center;
+}
+
+/* Weather information div styling */
+.weather {
+  background-color: #51adcf;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 300px;
+  margin: 100px auto;
+  padding: 50px;
+  position: relative;
+  width: 46.875rem;
+}

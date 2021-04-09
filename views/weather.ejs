@@ -1,0 +1,19 @@
+<%- include("partials/header"); -%>
+
+<div class="weather">
+  <h3><%= city %>, <%= country %> Weather</h3>
+  <p>As of <%= time %></p>
+  <h1><%= temp %> °<%= unitLetter %></h1>
+  <div class="icon-container">
+    <img src="<%= imageUrl %>" alt="<%= desc %> icon">
+    <p><%= desc %></p>
+  </div>
+</div>
+<div class="home">
+  <p class="btn btn-primary btn-lg">
+  <a href="/">
+    Home
+  </a>
+  </p>
+</div>
+<%- include("partials/footer"); -%>

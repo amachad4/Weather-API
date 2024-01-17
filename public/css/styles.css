@@ -1,4 +1,12 @@
-body{
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
   background-color: #dbf6e9;
   color: #e8ffc1;
   display: flex;
@@ -31,7 +39,7 @@ header a:hover {
   text-decoration: none;
 }
 
-header h1{
+header h1 {
   font-weight: bold;
   font-size: 3.75rem;
   margin: 0;
@@ -45,7 +53,7 @@ img {
 }
 
 /*errors div styling*/
-.alert{
+.alert {
   margin: 30px auto 0;
   position: relative;
   width: 40rem;
@@ -57,11 +65,15 @@ img {
   width: 45.5rem;
 }
 
-.form-container{
+.form-container {
   background-color: #51adcf;
   bottom: 100px;
   padding: 30px;
   position: relative;
+}
+
+.form-group {
+  padding-right: 1rem;
 }
 
 /* Home button styling */
@@ -72,8 +84,8 @@ img {
   position: relative;
 }
 
-.home a{
-  color: #FFF;
+.home a {
+  color: #fff;
   text-decoration: none;
 }
 

@@ -1,5 +1,5 @@
-<%- include("partials/header"); -%> <% if(alert !== ''){ %> <%
-alert.forEach(function(error){ %>
+<%- include("partials/header"); -%> <% if(alerts.length){ %> <%
+alerts.forEach(function(error){ %>
 <div class="alert alert-warning" role="alert"><%= error.msg %></div>
 <% }); %> <% } %>
 <div class="content">

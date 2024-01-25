@@ -3,17 +3,14 @@ const { check, validationResult } = require("express-validator");
 const dateAndTime = require("../lib/date.js");
 const unitSelection = require("../lib/units.js");
 const capitalize = require("../lib/capitalize.js");
-const Alert = require("../lib/setAlert.js");
 const formatTemp = require("../lib/formatTemp.js");
 const https = require("https");
+const [setAlerts, alerts] = require("../lib/setAlerts.js");
 
 const { API_KEY: apiKey } = process.env;
 
-let city = "";
-let alert = Alert.getInstance([]);
-
 const validationMiddleware = [
-  //user input validation
+  // user input validation
   check("cityName", "The city name field cannot be empty!").notEmpty().trim(),
   check("unit", "Invalid unit type!").custom((value, { req, loc, path }) => {
     if (value !== "Fahrenheit" && value !== "Celsius") {
@@ -28,8 +25,7 @@ const weatherView = (req, res) => {
   const errors = validationResult(req);
   //if errors array is not empty, redirect with errors
   if (!errors.isEmpty()) {
-    alert = Alert.getInstance(errors.array());
-    console.log(alert);
+    setAlerts(errors.array());
     res.redirect("/");
   } else {
     const [year, time] = dateAndTime();
@@ -47,14 +43,14 @@ const weatherView = (req, res) => {
       const { statusCode: status } = response;
       //if API call returns HTTP 404 error, redirect with errors
       if (status == 404) {
-        alert = [
+        setAlerts([
           {
             msg:
               'Sorry, no weather information was found for "' +
               query +
               '", please try again!',
           },
-        ];
+        ]);
         city = query;
         res.redirect("/");
       } else {
@@ -67,9 +63,9 @@ const weatherView = (req, res) => {
           } = JSON.parse(data);
           // capitalize first letters of weather description
           const desc = capitalize(description);
-          //if errors array is not empty, set alert back to falsy
-          if (alert) {
-            alert = "";
+          //if errors array is not empty, set alerts back to falsy
+          if (alerts.length) {
+            alerts.length = 0;
           }
 
           const imageUrl =
